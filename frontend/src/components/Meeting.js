@@ -2,7 +2,8 @@
 import React, { useState, useEffect} from 'react';
 import queryString from 'query-string';
 import io from 'socket.io-client';
-
+import UserDisplayInfo from './UserDisplayInfo.js'
+// frontend/src/UserDisplayInfo.js
 // -------------------------------------------------- Initialize Web Socket Here -->
 let socket;
 
@@ -57,7 +58,10 @@ console.log(message, messages);
 
     return (
         <div className="outer-input-container">
-            <h1>Meeting Room</h1>
+            <h1>A Fleeting Meeting</h1>
+
+            <UserDisplayInfo room={room} name={name}/>
+
             <div className="inner-input-container">
                 <input 
                     value={message} 
