@@ -35,7 +35,6 @@ io.on('connection', (socket) => {
     socket.on('sendMessage', (message, cb) => {
         const user = findUser(socket.id);
         io.to(user.room).emit('message', { user: user.name, text: message})
-
         cb();
     });
     

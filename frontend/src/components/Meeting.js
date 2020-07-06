@@ -3,12 +3,16 @@ import React, { useState, useEffect} from 'react';
 import queryString from 'query-string';
 import io from 'socket.io-client';
 import UserDisplayInfo from './UserDisplayInfo.js'
+import UserInputArea from './UserInputArea.js'
+import Messages from './Messages.js'
+// import MessageDisplay from './Message.js'
+import Message from './Message.js';
 // frontend/src/UserDisplayInfo.js
 // -------------------------------------------------- Initialize Web Socket Here -->
 let socket;
 
-// ---------------------------------------------------------------- Meeting Page -->
 
+// ---------------------------------------------------------------- Meeting Page -->
 const Meeting = ({ location }) => {
     const [name, setName] = useState('')
     const [room, setRoom] = useState('')
@@ -60,15 +64,12 @@ console.log(message, messages);
         <div className="outer-input-container">
             <h1>A Fleeting Meeting</h1>
 
-            <UserDisplayInfo room={room} name={name}/>
+            <UserDisplayInfo name={name} room={room}/>
+            {/* <Message></Message> */}
+            <Messages messages={messages} name={name}/>
+            <UserInputArea message={message} setMessage={setMessage} sendMessage={sendMessage}/>
 
-            <div className="inner-input-container">
-                <input 
-                    value={message} 
-                    onChange={(event) => setMessage(event.target.value)}
-                    onKeyPress={(event) => event.key === 'Enter' ? sendMessage(event) : null}
-                />
-            </div>
+            
         </div>
         
     )

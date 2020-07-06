@@ -5,13 +5,11 @@ import '../styles/userdisplayinfo.css'
 const UserDisplayInfo = ({ name, room }) => (
     <div className="user-display-info-outer-container">
         <div className="left-user-display-info-container">
-
+            <h3 className="user-info-bar">| {name} | {room} |</h3>
         </div>
-        <h3 className="user-info-bar">| {name} | {room} | <a href="/">Leave Meeting</a> |</h3>
-        
-        {/* <div className="right-user-display-info-container">
-            <a href="/">✖️</a>
-        </div> */}
+        <div>
+            <a className="leave-meeting-button"href="/">Leave Meeting</a>
+        </div>
     </div>
 
 )
