@@ -26,9 +26,9 @@ io.on('connection', (socket) => {
     console.log('Socket connection is...connected!')
 
         socket.on('join', ({ name, room }, cb) => {
-        const { error, user } = newUser({id: socket.id, name, room});
-        console.log(name, room)
-        if(error) return cb(error);
+            const { error, user } = newUser({id: socket.id, name, room});
+            console.log(name, room)
+            if(error) return cb(error);
     
         socket.emit('message', { user: 'admin', text: `${user.name} - joined ${user.room}. Be kind to other users and enjoy your stay!`});
         socket.broadcast.to(user.room).emit('message', {user: 'admin', text: `${user.name} has joined the meeting!`})
