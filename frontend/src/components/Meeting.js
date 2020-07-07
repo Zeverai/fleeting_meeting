@@ -5,16 +5,12 @@ import io from 'socket.io-client';
 import UserDisplayInfo from './UserDisplayInfo.js'
 import UserInputArea from './UserInputArea.js'
 import Messages from './Messages.js'
-// import MessageDisplay from './Message.js'
-import Message from './Message.js';
-// frontend/src/UserDisplayInfo.js
 
 // ---------------------------------------------- Import Default Style Component -->
 import '../styles/meeting.css'
 
 // ------------------------------------------------------ Initialize Web Socket  -->
 let socket;
-
 
 // ---------------------------------------------------------------- Meeting Page -->
 const Meeting = ({ location }) => {
@@ -53,6 +49,7 @@ const Meeting = ({ location }) => {
     }, [messages]);
 
 
+    
 // -------------------------------------------------- Send Message Event Handler -->
 const sendMessage = (event) => {
     event.preventDefault();
