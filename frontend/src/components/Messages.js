@@ -6,9 +6,11 @@ import Message from './Message.js'
 
 
 const Messages = ({messages, name}) => (
-    <ScrollToBottom>
-        {messages.map((message, index) => <div key={index}><Message name={name} message={message}/></div>)}
-    </ScrollToBottom>
+    <div className="static-message-menu"> 
+        <ScrollToBottom className="scrolling-message-menu">
+            {messages.map((message, index) => <div className="scrolling-message-menu" key={index}><Message name={name} message={message}/></div>)}
+        </ScrollToBottom>
+    </div>
 )
 
 export default Messages;

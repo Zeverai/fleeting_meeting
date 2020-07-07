@@ -2,18 +2,23 @@
 const express = require('express');
 const socketio = require('socket.io');
 const http = require('http');
-
+const CORS = require('cors')
 // ------------------------------------------------ PORT Listener Locations Here -->
 const PORT = process.env.PORT || 8000
 
 // ---------------------------------------------------------- Import Router Here -->
 const router = require('./router')
 
+
 // ------------------------------------------------------ Define MIDDLEWARE Here -->
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
 
+/////////////////////======================================= ******* ===========
+app.use(router)
+app.use(CORS())
+/////////////////////======================================= ******* ===========
 // --------------------------------------------------- User Array Functions Here -->
 const { newUser, disconnectUser, findUser, usersInMeeting} = require('./manage_users.js')
 
@@ -37,10 +42,15 @@ io.on('connection', (socket) => {
         io.to(user.room).emit('message', { user: user.name, text: message})
         cb();
     });
-    
+
     // USER DISCONNECTED MESSAGE
         socket.on('disconnect', () => {
-            console.log('User has left meeting room.')
+            const user = removeUser(socket.id)
+            if(user){
+                io.to(user.room).emit('message', {user: 'admin', text: `${user.name} has left the meeting room.`})
+                console.log('User has left meeting room.')
+            }
+            
         });
 });
 

@@ -17,8 +17,4 @@ const UserInputArea = ({ message, setMessage, sendMessage }) => (
     </form>
 )
 
-
-
-
-
 export default UserInputArea;

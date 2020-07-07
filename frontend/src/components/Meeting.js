@@ -1,4 +1,4 @@
-// ---------------------------------------------------- Import Dependencies Here -->
+// -------------------------------------------------------- Import Dependencies -->
 import React, { useState, useEffect} from 'react';
 import queryString from 'query-string';
 import io from 'socket.io-client';
@@ -8,7 +8,11 @@ import Messages from './Messages.js'
 // import MessageDisplay from './Message.js'
 import Message from './Message.js';
 // frontend/src/UserDisplayInfo.js
-// -------------------------------------------------- Initialize Web Socket Here -->
+
+// ---------------------------------------------- Import Default Style Component -->
+import '../styles/meeting.css'
+
+// ------------------------------------------------------ Initialize Web Socket  -->
 let socket;
 
 
@@ -61,12 +65,15 @@ const sendMessage = (event) => {
 console.log(message, messages);
 
     return (
-        <div className="outer-input-container">
-            <h1>A Fleeting Meeting</h1>
-
+        <div className="whole-app-container">
+            <div className="header-container">
+                <h1 className="header">A FLEETING MEETING</h1>
+            </div>
             <UserDisplayInfo name={name} room={room}/>
             {/* <Message></Message> */}
-            <Messages messages={messages} name={name}/>
+            <div className="message-box-background">
+                <Messages messages={messages} name={name}/>
+            </div>
             <UserInputArea message={message} setMessage={setMessage} sendMessage={sendMessage}/>
 
             
