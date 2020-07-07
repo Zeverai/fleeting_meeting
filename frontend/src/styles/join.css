@@ -1,0 +1,25 @@
+.login-outer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.login-inner-container {
+    font-family: Arial, Helvetica, sans-serif;
+    color: ghostwhite;
+    border: 1px solid black;
+    text-align: center;
+    border-radius: 5px;
+    width: 50%;
+    text-align: center;
+    background-image: linear-gradient( #6C5B7B, #8466bb);
+    padding: 5px;
+    text-shadow: 0px 2px 8px #41314e;
+}
+
+
+.login-input {
+    padding: 5px 3px;
+    margin: 3px 0px;
+}
+

@@ -1,0 +1,10 @@
+.scrolling-message-menu {
+    background-color: ghostwhite;
+    padding: 5% 0;
+    overflow: auto;
+    flex: auto;
+}
+
+.static-message-menu {
+    background-color: ghostwhite;
+}

@@ -1,0 +1,18 @@
+body {
+    background-color: rgb(19, 16, 19);
+}
+
+.header {
+    text-align: center;
+    color: ghostwhite;
+    font-family:Arial, Helvetica, sans-serif;
+    text-shadow: 0px 2px 5px #1f0427;
+}
+
+.message-box-background {
+    background-color: ghostwhite;
+    overflow: auto;
+    max-height: 400px;
+    border-radius: 5px;
+    flex: auto;
+}

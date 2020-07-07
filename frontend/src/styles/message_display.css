@@ -1,0 +1,28 @@
+.message-container{
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid black;
+    border-radius: 3px;
+    margin: 3px;
+    padding: 3px;
+    background-color: ghostwhite;
+    margin-top: 5px;
+}
+
+.user-sent-text-name {
+    color: purple;
+    text-align: right;
+}
+
+.other-sent-text-name {
+    color: darkorchid;
+    text-align: left;
+}
+
+.user-message-text {
+    text-align: right;
+    padding-right: 0px;
+}
+
+.other-message-text {
+    text-align: left;
+}
