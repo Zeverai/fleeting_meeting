@@ -16,7 +16,6 @@ const server = http.createServer(app);
 const io = socketio(server);
 
 /////////////////////======================================= ******* ===========
-app.use(router)
 app.use(CORS())
 /////////////////////======================================= ******* ===========
 // --------------------------------------------------- User Array Functions Here -->
@@ -26,7 +25,7 @@ const { newUser, disconnectUser, findUser, usersInMeeting} = require('./manage_u
 io.on('connection', (socket) => {
     console.log('Socket connection is...connected!')
 
-    socket.on('join', ({ name, room }, cb) => {
+        socket.on('join', ({ name, room }, cb) => {
         const { error, user } = newUser({id: socket.id, name, room});
         console.log(name, room)
         if(error) return cb(error);
